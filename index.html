@@ -1,410 +1,469 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>movie</title>
-        <style>
-                *{
-                        margin: 0;
-                        padding: 0;
-                        text-decoration: none;
-                        list-style: none;
-                }
-                body {
-                        background-color: azure;
-                        border-top: 1px solid white;
-                        background-image: url("https://5b0988e595225.cdn.sohucs.com/images/20190106/354db69327294e409b8f9aa0ff2824e1.jpeg");
-                        background-size: cover;
-                        background-position: center;
-                }
-                .search {
-                        position: fixed;
-                        left: 0;
-                        right: 0;                       
-                        background-color: rgba(255, 255, 255, 0.1);
-                        box-shadow: 0px 0px 2px 1px rgba(20, 20, 20, 0.5);
-                        border-radius:1px 1px 50px 50px;
-                        backdrop-filter: blur(3px);
-                        z-index: 999;
-                        text-align: center;
-                        font-size: 25px;
-                        height: 40px;
-                        overflow: hidden;
-                        transition: all 3s;
-                        text-shadow: 0px 0px 15px white;
-                }
-                .search1 {
-                        bottom: 0;
-                }
-                .search:hover {
-                        height: 40vh;
-                        color: red;
-                }
-                .search:active {
-                        height: 100vh;
-                        color:yellow
-                }
-             
-                hr,h3 {
-                        font-size: 25px;
-                        margin: 4px auto;
-                }
-                #url1 {
-                        width: 55%;
-                        height: 34px;
-                        line-height: 35px;
-                        margin: 4px;
-                        border: 3px solid #cccccc;
-                        border-radius: 4px;
-                        font-size: 20px;
-                        text-indent: 11px;
-                        vertical-align: middle;
-                }
-                #select1,button,[type=submit],
-                [type=reset] {
-                        height: 40px;
-                        line-height: 40px;
-                        border-radius: 5px;
-                        border: 1px solid #bfbfbf;
-                        font-size: 23px;
-                        color: black;
-                        vertical-align: middle;
-                
-                }
-                button:hover,[type=submit]:hover,
-                [type=reset]:hover {
-                color: red;
-                cursor: pointer;
-                }
-                button:active,[type=submit]:active,
-                [type=reset]:active {
-                        box-shadow: 0 0 5px 5px;
-                }
-                
-                [type=text]:hover {
-                        background-color: #cccccc;
-                }
-                [type="text"]:focus {
-                        background-color: bisque;
-                }
-                select:focus {
-                        background-color: rgba(0, 255, 0, 0.2);
-                }
-                .interesting {
-                        margin-top: 30vh;
-                        font-size: 100px;
-                }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
 
-                .movie-range {
-                        width: 98%;
-                        margin: 0 auto;
-                        position: relative;
-                        z-index: 1;
-                }
-                iframe {
-                        margin-top: 40px;
-                        width: 100%;
-                        
-                 }
+        body {
+            background-color: azure;
+            border-top: 1px solid white;
+            background-image: url("https://5b0988e595225.cdn.sohucs.com/images/20190106/354db69327294e409b8f9aa0ff2824e1.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-                .content {
-                        position: relative;
-                        max-width: 960px;
-                        margin: 15vh auto;
-                        z-index: 2;                   
-                }
-                li {
-                        border-bottom: 2px solid black;
-                        height: 35px;
-                        transition: all 2s;
-                        overflow: hidden;
-                        background-color: rgba(255, 255, 255, 0.1);
-                        /* box-shadow: 0px 0px 2px 1px rgba(20, 20, 20, 0.5); */
-                        backdrop-filter: blur(3px);
-                        text-align: center;
-                        text-shadow: 0px 0px 15px white;
-                }
-                li:hover {
-                        height: 30vh;
-                        color: red;
-                }
-                a {
-                        height: 31px;
-                        text-align: center;
-                        font-size: 25px;
-                        display: inline-block;
-                        margin: 2px 2px;
-                        border: 1px solid black;
-                        line-height: 31px;
-                        vertical-align: top;    
-                        background-color: rgba(255, 255, 255, 0.5);
-                }
-                a:hover {
-                        background-color: red;
-                        color: white;
-                }
-                
+        .empty:empty {
+            height: 40px;
+        }
+        #sp11 {
+            display: inline-block;
+            width: 125px;
+            height: 33px;
+            overflow: hidden;
+            transition: width 1s linear;
+        }
+        #sp11:hover {
+            width: 300px;
+        }
+        #sp11:hover::after {
+            content: '(点我切换位置)';
+        }
+        
+        .search {
+            position: fixed;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 2px 1px rgba(20, 20, 20, 0.5);
+            border-radius: 1px 1px 50px 50px;
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            text-align: center;
+            font-size: 25px;
+            height: 40px;
+            overflow: hidden;
+            transition: height 1.5s linear 1s;
+            text-shadow: 0px 0px 15px white;
+        }
 
-        </style>
+        .search1 {
+            bottom: 0;
+        }
+
+        .search:hover {
+            height: 40vh;
+            color: red;
+        }
+
+        .search:active {
+            height: 100vh;
+            color: yellow
+        }
+
+        hr,
+        h3 {
+            font-size: 25px;
+            margin: 4px auto;
+        }
+
+        #url1 {
+            width: 55%;
+            height: 34px;
+            line-height: 35px;
+            margin: 4px;
+            border: 3px solid #cccccc;
+            border-radius: 4px;
+            font-size: 20px;
+            text-indent: 11px;
+            vertical-align: middle;
+        }
+
+        #select1,
+        button,
+        [type=submit],
+        [type=reset] {
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            border: 1px solid #bfbfbf;
+            font-size: 23px;
+            color: black;
+            vertical-align: middle;
+
+        }
+
+        button:hover,
+        [type=submit]:hover,
+        [type=reset]:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        button:active,
+        [type=submit]:active,
+        [type=reset]:active {
+            box-shadow: 0 0 5px 5px;
+        }
+
+        [type=text]:hover {
+            background-color: #cccccc;
+        }
+
+        [type="text"]:focus {
+            background-color: bisque;
+        }
+
+        select:focus {
+            background-color: rgba(0, 255, 0, 0.2);
+        }
+
+        .interesting {
+            margin-top: 30vh;
+            font-size: 100px;
+
+        }
+
+        .movie-range {
+            width: 98%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            border-width: 10px;
+            border-style: ridge;
+        }
+
+        iframe {
+
+            width: 100%;
+
+
+        }
+
+        .content {
+            position: relative;
+            max-width: 960px;
+            margin: 15vh auto;
+            z-index: 2;
+        }
+
+        li {
+            border-bottom: 2px solid black;
+            height: 35px;
+            transition: height 0.6s linear 1s;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(3px);
+            text-align: center;
+            text-shadow: 0px 0px 15px white;
+        }
+
+        li:hover {
+            height: 30vh;
+            color: red;
+        }
+
+        a {
+            height: 31px;
+            text-align: center;
+            font-size: 25px;
+            display: inline-block;
+            margin: 2px 2px;
+            border: 1px solid black;
+            line-height: 31px;
+            vertical-align: top;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        a:hover {
+            background-color: red;
+            color: white;
+        }
+
+        #url1.error {
+            background-color: red;
+        }
+    </style>
 </head>
+
 <body>
-        
-        <div id="div1" class="search">
-                <h3 class="topbar"><span onclick="topto()">地 址 解 析</span></h3>
-                <form id="form1" action="https://www.pouyun.com/" target="_blank">
-                        <input id="url1" type="text" name="url" placeholder="请输入需要解析的地址" required>
-                        <input id="submit1" type="submit" value="新窗口">
-                        <input type="reset" value="清空">
-                </form>
-                <span>选择解析的线路:</span>
-                <select id="select1">
-                        <option value="https://www.pouyun.com/" selected>线路1</option>
-                        <option value="https://player.mrgaocloud.com/player/">线路2</option>
-                        <option value="https://jx.jiexila.com/">线路3</option>
-                        <option value="https://jx.playerjy.com/">线路4</option>
-                        <option value="https://jx.7kjx.com/">线路5</option>
-                        <option value="https://jx.aidouer.net/">线路6</option>
-                        <option value="https://jx.xmflv.com/">线路7</option>
-                        <option value="https://jx.aidouer.net/">线路8</option>
-                        <option value="https://www.yemu.xyz/">线路9</option>
-                        <option value="https://jx.m3u8.tv/jiexi/">线路10</option>
-                        <option value="https://jx.xmflv.cc/">线路11</option>
-                        <option value="https://llq.tyhua.top/">线路12</option>
-                        <option value="https://jx.2s0.cn/player/">线路13</option>
-                        <option value="https://jx.xyflv.cc/">线路14</option>
-                        <option value="https://yparse.ik9.cc/">线路15</option>
-                        <option value="http://yun.hangyetong.net/bilibili.php/">bilibili</option>
-                </select>
-                <button type="button" onclick="jx()"">预览</button>
+
+    <div id="div1" class="search">
+        <h3 class="topbar"><span id="sp11" onclick="topto()">地 址 解 析</span></h3>
+        <form id="form1" action="https://www.pouyun.com/" target="_blank">
+            <input id="url1" type="text" name="url" placeholder="请输入需要解析的地址" required>
+            <input id="submit1" type="submit" value="新窗口">
+            <input type="reset" value="清空">
+        </form>
+        <span>选择解析的线路:</span>
+        <select id="select1">
+            <option value="https://www.pouyun.com/" selected>线路1</option>
+            <option value="https://player.mrgaocloud.com/player/">线路2</option>
+            <option value="https://jx.jiexila.com/">线路3</option>
+            <option value="https://jx.playerjy.com/">线路4</option>
+            <option value="https://jx.7kjx.com/">线路5</option>
+            <option value="https://jx.aidouer.net/">线路6</option>
+            <option value="https://jx.xmflv.com/">线路7</option>
+            <option value="https://jx.aidouer.net/">线路8</option>
+            <option value="https://www.yemu.xyz/">线路9</option>
+            <option value="https://jx.m3u8.tv/jiexi/">线路10</option>
+            <option value="https://jx.xmflv.cc/">线路11</option>
+            <option value="https://llq.tyhua.top/">线路12</option>
+            <option value="https://jx.2s0.cn/player/">线路13</option>
+            <option value="https://jx.xyflv.cc/">线路14</option>
+            <option value="https://yparse.ik9.cc/">线路15</option>
+            <option value="http://yun.hangyetong.net/bilibili.php/">bilibili</option>
+        </select>
+        <button type="button" onclick="jx()"">预览</button>
                 <hr>
-                <a href="https://v.youku.com/" target="_blank">优酷</a>
-                <a href="https://v.qq.com/" target="_blank">腾讯</a>
-                <a href="https://www.iqiyi.com/" target="_blank">奇艺</a>
-                <a href="https://www.mgtv.com/" target="_blank">芒果</a>
-                <a href="https://www.le.com/" target="_blank">乐视</a>
-                <a href="http://www.baofeng.com/" target="_blank">暴风</a>
-                <a href="http://www.gdqixinkj.com/" target="_blank">天天</a>
-                <a href="https://film.sohu.com/" target="_blank">搜狐</a>
-                <a href="https://www.ixigua.com/" target="_blank">西瓜</a>
-                <a href="https://www.56.com/" target="_blank">56</a>
-                <a href="https://vip.1905.com/" target="_blank">1905</a>
-                <a href="https://www.pptv.com/" target="_blank">pptv</a>
-                <div class="interesting">别点啦松手吧</div>
-        </div>
-        <div class="movie-range">
-                <iframe id="iframe1" src="http://www.pouyun.com/" frameborder="1px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  name="blank"></iframe>
+                <a href=" https://v.youku.com/" target="_blank">优酷</a>
+            <a href="https://v.qq.com/" target="_blank">腾讯</a>
+            <a href="https://www.iqiyi.com/" target="_blank">奇艺</a>
+            <a href="https://www.mgtv.com/" target="_blank">芒果</a>
+            <a href="https://www.le.com/" target="_blank">乐视</a>
+            <a href="http://www.baofeng.com/" target="_blank">暴风</a>
+            <a href="http://www.gdqixinkj.com/" target="_blank">天天</a>
+            <a href="https://film.sohu.com/" target="_blank">搜狐</a>
+            <a href="https://www.ixigua.com/" target="_blank">西瓜</a>
+            <a href="https://www.56.com/" target="_blank">56</a>
+            <a href="https://vip.1905.com/" target="_blank">1905</a>
+            <a href="https://www.pptv.com/" target="_blank">pptv</a>
+            <div class="interesting">别点啦松手吧</div>
+    </div>
+    <div id="div2" class="empty"></div>
+    <div class="movie-range">
+        <iframe id="iframe1" src="http://www.pouyun.com/" frameborder="1px" allowfullscreen="true"
+            webkitallowfullscreen="true" mozallowfullscreen="true" name="blank"></iframe>
 
-        </div>
-        <div class="content">
-                <ul>
-                        <li>
-                                <h3>看不见影子的少年</h3>
-                                <div>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_9yfo951gk4.html" target="blank">01</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_hfti4hfigg.html" target="blank">02</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2aamqvcipqk.html" target="blank">03</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1wiff3kcagc.html" target="blank">04</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_ibbu0w0src.html" target="blank">05</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17zi0ub22t4.html" target="blank">06</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_109r7pry9q8.html" target="blank">07</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_21iketmnnjs.html" target="blank">08</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_10hzur1hfoc.html" target="blank">09</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_kur6h5f578.html" target="blank">10</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_246hwqfmp1w.html" target="blank">11</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2aqy497t7go.html" target="blank">12</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_13ixy7i1yl4.html" target="blank">13</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_sscxkvlsus.html" target="blank">14</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1325iayw1o8.html" target="blank">15</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1v1zhu959q8.html" target="blank">16</a>
-                            
-                                    </div>
-                        </li>
-                        <li>
-                                <h3>黑白密码</h3>
-                                <div>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/u0047y37235.html"
-                                            target="blank">01</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/d004714ybpr.html"
-                                            target="blank">02</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/q0047czuhuk.html"
-                                            target="blank">03</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/o0047u1v5kz.html"
-                                            target="blank">04</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/b00478a5ysg.html"
-                                            target="blank">05</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/a0047use1gx.html"
-                                            target="blank">06</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/w0047x17raf.html"
-                                            target="blank">07</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/z0047irx9cc.html"
-                                            target="blank">08</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047weahyy.html"
-                                            target="blank">09</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047bkyr2t.html"
-                                            target="blank">10</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/i0047uvg2qe.html"
-                                            target="blank">11</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/y00470w961x.html"
-                                            target="blank">12</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/i0047qxu790.html"
-                                            target="blank">13</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/x0047nvuhw7.html"
-                                            target="blank">14</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/b0047tcay0z.html"
-                                            target="blank">15</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/n0047jugsp2.html"
-                                            target="blank">16</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/u0047h90npr.html"
-                                            target="blank">17</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/g0047texre0.html"
-                                            target="blank">18</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/y0047f3rt2d.html"
-                                            target="blank">19</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/d0047w9kth6.html"
-                                            target="blank">20</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047hjf0nz.html"
-                                            target="blank">21</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/t0047wc0fge.html"
-                                            target="blank">22</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/n0047iaq3ra.html"
-                                            target="blank">23</a>
-                                        <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/m0047zt0w4j.html"
-                                            target="blank">24</a>
-                                    </div>
-                        </li>
-                        <li>
-                                <h3>虽然我不是英雄</h3>
-                                <div>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8"
-                                            target="blank">01</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8"
-                                            target="blank">02</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8"
-                                            target="blank">03</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8"
-                                            target="blank">04</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8"
-                                            target="blank">05</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8"
-                                            target="blank">06</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8"
-                                            target="blank">07</a>
-                                        <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8"
-                                            target="blank">08</a>
-                            
-                                    </div>
-                        </li>
-                        <li>
-                                <h3>狂飙</h3>
-                                <div>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_xkt6z3z798.html" target="blank">01</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nvdvo4f38k.html" target="blank">02</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_163w0ytgf90.html" target="blank">03</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1izxbujouio.html" target="blank">04</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_27d5ltb7u58.html" target="blank">05</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_xampanvmi4.html" target="blank">06</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_14jgikyh7sc.html" target="blank">07</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_21rewxdey30.html" target="blank">08</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_gb2vx3uxr8.html" target="blank">09</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_16beaenwdu8.html" target="blank">10</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_18bzc47fhl0.html" target="blank">11</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1kgn2k2t5l4.html" target="blank">12</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_tdljpbqkl8.html" target="blank">13</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_sl854tl2ko.html" target="blank">14</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1xtnj76y98g.html" target="blank">15</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17anfy7yyyk.html" target="blank">16</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_26tz1mq3fhs.html" target="blank">17</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1bqbi1gz35w.html" target="blank">18</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1g3cnlaur64.html" target="blank">19</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_hdllpniiws.html" target="blank">20</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_dlgsuetjto.html" target="blank">21</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1x6gz6c1eyo.html" target="blank">22</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_23jdqa9vk28.html" target="blank">23</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1fh6do0eoa8.html" target="blank">24</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_19pqfipchb8.html" target="blank">25</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nxybtty9xs.html" target="blank">26</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17sovdugptg.html" target="blank">27</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_13vq3ejvt14.html" target="blank">28</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1dloz7f47q8.html" target="blank">29</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2cc1w130dt8.html" target="blank">30</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_x4dtv6tphw.html" target="blank">31</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_lt8z8xm5l4.html" target="blank">32</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1vs5edve4m4.html" target="blank">33</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_vq7uvk7vws.html" target="blank">34</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nwrspjwpyc.html" target="blank">35</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_ex2qv89oe0.html" target="blank">36</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_25vgx13phtw.html" target="blank">37</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_291jtm4up5k.html" target="blank">38</a>
-                                        <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2bql2y1p4qs.html" target="blank">39</a>
-                                    </div>
-                        </li>
-                </ul>
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <h3>看不见影子的少年</h3>
+                <div>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_9yfo951gk4.html" target="blank">01</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_hfti4hfigg.html" target="blank">02</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2aamqvcipqk.html" target="blank">03</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1wiff3kcagc.html" target="blank">04</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_ibbu0w0src.html" target="blank">05</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17zi0ub22t4.html" target="blank">06</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_109r7pry9q8.html" target="blank">07</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_21iketmnnjs.html" target="blank">08</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_10hzur1hfoc.html" target="blank">09</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_kur6h5f578.html" target="blank">10</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_246hwqfmp1w.html" target="blank">11</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2aqy497t7go.html" target="blank">12</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_13ixy7i1yl4.html" target="blank">13</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_sscxkvlsus.html" target="blank">14</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1325iayw1o8.html" target="blank">15</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1v1zhu959q8.html" target="blank">16</a>
 
-        </div>
+                </div>
+            </li>
+            <li>
+                <h3>黑白密码</h3>
+                <div>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/u0047y37235.html"
+                        target="blank">01</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/d004714ybpr.html"
+                        target="blank">02</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/q0047czuhuk.html"
+                        target="blank">03</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/o0047u1v5kz.html"
+                        target="blank">04</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/b00478a5ysg.html"
+                        target="blank">05</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/a0047use1gx.html"
+                        target="blank">06</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/w0047x17raf.html"
+                        target="blank">07</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/z0047irx9cc.html"
+                        target="blank">08</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047weahyy.html"
+                        target="blank">09</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047bkyr2t.html"
+                        target="blank">10</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/i0047uvg2qe.html"
+                        target="blank">11</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/y00470w961x.html"
+                        target="blank">12</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/i0047qxu790.html"
+                        target="blank">13</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/x0047nvuhw7.html"
+                        target="blank">14</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/b0047tcay0z.html"
+                        target="blank">15</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/n0047jugsp2.html"
+                        target="blank">16</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/u0047h90npr.html"
+                        target="blank">17</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/g0047texre0.html"
+                        target="blank">18</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/y0047f3rt2d.html"
+                        target="blank">19</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/d0047w9kth6.html"
+                        target="blank">20</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/l0047hjf0nz.html"
+                        target="blank">21</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/t0047wc0fge.html"
+                        target="blank">22</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/n0047iaq3ra.html"
+                        target="blank">23</a>
+                    <a href="https://www.pouyun.com/?url=https://v.qq.com/x/cover/mzc0020061cz2lp/m0047zt0w4j.html"
+                        target="blank">24</a>
+                </div>
+            </li>
+            <li>
+                <h3>虽然我不是英雄</h3>
+                <div>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8"
+                        target="blank">01</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8"
+                        target="blank">02</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8"
+                        target="blank">03</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8"
+                        target="blank">04</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8"
+                        target="blank">05</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8"
+                        target="blank">06</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8"
+                        target="blank">07</a>
+                    <a href="https://www.pouyun.com/?url=https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8"
+                        target="blank">08</a>
+
+                </div>
+            </li>
+            <li>
+                <h3>狂飙</h3>
+                <div>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_xkt6z3z798.html" target="blank">01</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nvdvo4f38k.html" target="blank">02</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_163w0ytgf90.html" target="blank">03</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1izxbujouio.html" target="blank">04</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_27d5ltb7u58.html" target="blank">05</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_xampanvmi4.html" target="blank">06</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_14jgikyh7sc.html" target="blank">07</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_21rewxdey30.html" target="blank">08</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_gb2vx3uxr8.html" target="blank">09</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_16beaenwdu8.html" target="blank">10</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_18bzc47fhl0.html" target="blank">11</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1kgn2k2t5l4.html" target="blank">12</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_tdljpbqkl8.html" target="blank">13</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_sl854tl2ko.html" target="blank">14</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1xtnj76y98g.html" target="blank">15</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17anfy7yyyk.html" target="blank">16</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_26tz1mq3fhs.html" target="blank">17</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1bqbi1gz35w.html" target="blank">18</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1g3cnlaur64.html" target="blank">19</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_hdllpniiws.html" target="blank">20</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_dlgsuetjto.html" target="blank">21</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1x6gz6c1eyo.html" target="blank">22</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_23jdqa9vk28.html" target="blank">23</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1fh6do0eoa8.html" target="blank">24</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_19pqfipchb8.html" target="blank">25</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nxybtty9xs.html" target="blank">26</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_17sovdugptg.html" target="blank">27</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_13vq3ejvt14.html" target="blank">28</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1dloz7f47q8.html" target="blank">29</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2cc1w130dt8.html" target="blank">30</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_x4dtv6tphw.html" target="blank">31</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_lt8z8xm5l4.html" target="blank">32</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1vs5edve4m4.html" target="blank">33</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_vq7uvk7vws.html" target="blank">34</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_1nwrspjwpyc.html" target="blank">35</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_ex2qv89oe0.html" target="blank">36</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_25vgx13phtw.html" target="blank">37</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_291jtm4up5k.html" target="blank">38</a>
+                    <a href="https://www.pouyun.com/?url=https://www.iqiyi.com/v_2bql2y1p4qs.html" target="blank">39</a>
+                </div>
+            </li>
+            <li>
+                <h3>电影</h3>
+                <div>
+
+                    <a href="https://www.pouyun.com/?url=https://v.youku.com/v_show/id_XNjM3Mjg3NDQ4OA==.html"
+                        target="blank">黑白潜行</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
 
 
 
 
 
-        <script>
+    <script>
 
-                document.addEventListener('DOMContentLoaded', (event) => {
-                    document.addEventListener('click', (event) => {
-        
-                        if (event.target.tagName.toLowerCase() === 'a') {
-                            var href = event.target.getAttribute('href');
-                            if (href.includes('url=')) {
-                                document.getElementById('url1').value = href.substring(href.indexOf("url=") + 4,);
-                                window.scrollTo({
-                                                    top: 0,
-                                                    behavior: 'smooth' // 可选，平滑滚动效果
-                                                });
-                            }
-                        } else {
-                            document.getElementById("form1").action = document.getElementById("select1").value;
-                          
-        
-                        }
-                    });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.addEventListener('click', (event) => {
+
+                if (event.target.tagName.toLowerCase() === 'a') {
+                    var href = event.target.getAttribute('href');
+                    if (href.includes('url=')) {
+                        document.getElementById('url1').value = href.substring(href.indexOf("url=") + 4,);
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth' // 可选，平滑滚动效果
+                        });
+                    }
+                } else {
+                    document.getElementById("form1").action = document.getElementById("select1").value;
+
+
+                }
+            });
+        });
+        function jx() {
+            if (bbbb = document.getElementById('url1').value.substring(0, 4) !== "http") {
+                url1.classList.add("error");
+                alert("地址有误,无法显示预览,请重新填写!");
+            } else {
+                url1.classList.remove("error");
+                var aaaa = document.getElementById("select1").value;
+                var bbbb = document.getElementById('url1').value;
+                document.getElementById("iframe1").src = aaaa + "?url=" + bbbb;
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 可选，平滑滚动效果
                 });
-                function jx(){
-                            if(bbbb=document.getElementById('url1').value.substring(0,4)!=="http"){
-                                alert("地址有误,无法显示预览,请重新填写!");
-                            }else{
-                                var aaaa=document.getElementById("select1").value;
-                                var bbbb=document.getElementById('url1').value;
-                                document.getElementById("iframe1").src = aaaa+"?url="+bbbb;
-                                window.scrollTo({
-                                                    top: 0,
-                                                    behavior: 'smooth' // 可选，平滑滚动效果
-                                                });
-                            }
-                     
-                            
-                }
-              
-        
-        
-                function resizeIframe() {
-                            var iframe = document.getElementById('iframe1');
-                            iframe.style.height = window.innerHeight*0.95 + 'px';
-                        }
-                window.onload = function() {
-                            // 当页面加载完成时设置iframe的高度
-                            resizeIframe();
-                        };
-                window.onresize = function() {
-                            // 当浏览器窗口大小改变时设置iframe的高度
-                            resizeIframe();
-                        };
-             
-                        function  topto(){
-                       
-                         document.getElementById('div1').classList.toggle("search1");                     
+            }
 
-                }
-                
+
+        }
+
+
+
+        function resizeIframe() {
+            var iframe = document.getElementById('iframe1');
+            iframe.style.height = window.innerHeight * 0.9 + 'px';
+        }
+        window.onload = function () {
+            // 当页面加载完成时设置iframe的高度
+            resizeIframe();
+        };
+        window.onresize = function () {
+            // 当浏览器窗口大小改变时设置iframe的高度
+            resizeIframe();
+        };
+
+        function topto() {
+
+            document.getElementById('div1').classList.toggle("search1");
+            document.getElementById('div2').classList.toggle("empty");
+            
+        }
 
 
 
@@ -412,6 +471,8 @@
 
 
 
-            </script>
+
+    </script>
 </body>
+
 </html>
