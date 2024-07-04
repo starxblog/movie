@@ -139,19 +139,21 @@
         }
 
         .movie-range {
-            width: 98%;
+            width: 98.5vw;
+            height: 95vh;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            border-width: 10px;
-            border-style: ridge;
+            border-width: 2px;
+            border: .5vw solid rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
         }
 
         iframe {
 
             width: 100%;
 
-
+            height: 100%;
         }
 
         .content {
@@ -1304,19 +1306,6 @@
                 });
             }
 
-        };
-
-        function resizeIframe() {
-            var iframe = document.getElementById('iframe1');
-            iframe.style.height = window.innerHeight * 0.9 + 'px';
-        };
-        window.onload = function () {
-            // 当页面加载完成时设置iframe的高度
-            resizeIframe();
-        };
-        window.onresize = function () {
-            // 当浏览器窗口大小改变时设置iframe的高度
-            resizeIframe();
         };
 
         function topto() {
