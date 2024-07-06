@@ -66,7 +66,7 @@
         }
 
         .search:hover {
-            height: 40vh;
+            height: 30vh;
             color: red;
 
         }
@@ -155,12 +155,12 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            height: 86%;
+            height: calc(30vh - 35px);
         }
 
         li:hover {
             color: red;
-            height: 315px;
+            height: 30vh;
         }
         
         
@@ -216,8 +216,39 @@
 
         @media screen and (max-width:600px) {
             .movie-range {
-                height: 75vh;
+                height: 70vh;
             }
+            .search {
+                position: static;
+                height: 30vh;
+                border-radius: 1px 1px 1px 1px;
+            }
+            .empty:empty {
+            height: 0px;
+        }
+        #sp11 {
+            width: 100vw;
+        }
+        #sp11::after {
+            content: '(移动端部分效果关闭)';
+        }
+        #sp11:hover {
+            width: 100vw;
+        }
+        li>div {
+            height: 340px;
+        }
+        li:hover {
+            height: 385px;
+        }
+        .span2{
+            display: block;
+            color: white;
+            text-shadow: 0px 0px 15px black;
+        }
+        .span2::after {
+            content: '查看全部效果请使用宽屏设备';
+        }
         }
     </style>
 </head>
@@ -248,8 +279,6 @@
             <option value="https://llq.tyhua.top/">线路11</option>
             <option value="https://jx.2s0.cn/player/">线路12</option>
             <option value="https://jx.xyflv.cc/">线路13</option>
-            <option value="https://yparse.ik9.cc/">线路14</option>
-            <option value="http://yun.hangyetong.net/bilibili.php/">bilibili</option>
         </select>
         <button type="button" onclick="jx()"">预览</button>
                 <hr>
@@ -265,6 +294,7 @@
             <a href="https://www.56.com/" target="_blank">56</a>
             <a href="https://vip.1905.com/" target="_blank">1905</a>
             <a href="https://www.pptv.com/" target="_blank">pptv</a>
+            <span class="span2"></span>
             <div class="interesting">别点啦松手吧</div>
     </div>
 
@@ -968,9 +998,9 @@
                     <span onclick="jx1('https://www.iqiyi.com/v_19rrhtz1qs.html')">铁血战士1</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_19rrhu4iqw.html')">铁血战士2</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_19rqt8j15w.html')">铁血战士3</span>
+                    <span onclick="jx1('https://v.youku.com/v_show/id_XNTkzMTI2MTIyOA==.html')">异形人类归宿</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_19rrk11xkg.html')">异形大战铁血战士1</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_19rrk1360g.html')">异形大战铁血战士2</span>
-                    <span onclick="jx1('https://v.youku.com/v_show/id_XNTkzMTI2MTIyOA==.html')">异形人类归宿</span>
                 </div>
             </li>
             <li>
