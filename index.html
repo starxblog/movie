@@ -162,8 +162,8 @@
             color: red;
             height: 315px;
         }
-
-
+        
+        
         #select1,
         button,
         [type=submit],
@@ -178,8 +178,11 @@
             line-height: 31px;
             vertical-align: middle;
             background-color: rgba(255, 255, 255, 0.5);
-            transition: box-shadow 0.3s;
+            transition: box-shadow 0.4s,background-color 0.5s;
         }
+
+        
+
         [type=submit],
         [type=reset] {
             height: 36px;
@@ -191,6 +194,7 @@
             color: black;
         }
 
+        
         button:hover,
         #select1:hover,
         [type=submit]:hover,
@@ -198,16 +202,17 @@
         a:hover,
         li>div>span:hover {
             cursor: pointer;
-            background-color: rgba(255, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.4);
             color: white;
-            box-shadow: 0 0 20px black;
+            box-shadow: 0 0 10px white;
         }
 
         button:active,
         [type=submit]:active,
         [type=reset]:active,a:active,li>div>span:active {
-            background-color: rgba(255, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.3);
         }
+
 
         @media screen and (max-width:600px) {
             .movie-range {
@@ -223,7 +228,7 @@
         <h3 class="topbar">
             <span id="sp11" onclick="top_to()">地 址 解 析</span>
         </h3>
-        <form id="form1" action="https://www.pouyun.com/" target="_blank">
+        <form id="form1" action="http://www.pouyun.com/" target="_blank">
             <input id="url1" type="text" name="url" placeholder="请输入需要解析的地址" required>
             <input id="submit1" type="submit" value="新窗口">
             <input type="reset" value="清空">
@@ -272,6 +277,21 @@
 
     <div class="content">
         <ul>
+            <li>
+                <h3>你比星光美丽</h3>
+                <div>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/g4100q217mb.html')">01</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/x4100jyvpbr.html')">02</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/q4100hqbpby.html')">03</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/h4100fmtvg0.html')">04</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/g4100w48js1.html')">05</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/y4100gpi94k.html')">06</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/s410093qsx2.html')">07</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/d4100vo6mbo.html')">08</span>
+                    <!-- <span onclick="jx1('')">09</span> -->
+
+                </div>
+            </li>
             <li>
                 <h3>看不见影子的少年</h3>
                 <div>
