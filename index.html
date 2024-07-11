@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: azure;          
-            background-image: url("https://5b0988e595225.cdn.sohucs.com/images/20190106/354db69327294e409b8f9aa0ff2824e1.jpeg");
+            background-color: azure;
+            /* background-image: url("https://5b0988e595225.cdn.sohucs.com/images/20190106/354db69327294e409b8f9aa0ff2824e1.jpeg"); */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -55,7 +55,7 @@
             font-size: 0px;
             height: 40px;
             overflow: hidden;
-            transition: height 1.5s linear 1s;
+            transition: height 0.6s linear 1s;
             text-shadow: 0px 0px 15px white;
         }
 
@@ -75,13 +75,17 @@
             color: yellow
         }
 
-        .search>span,hr,
+        #color1,.search>span,
         h3 {
             font-size: 25px;
             margin: 4px auto;
             vertical-align: middle;
         }
 
+        hr {
+            border-top: 2px solid rgba(0, 0, 0, 0.3);
+            border-bottom: none;
+        }
         #url1 {
             width: 55%;
             height: 34px;
@@ -101,7 +105,7 @@
         [type="text"]:focus {
             background-color: bisque;
         }
-     
+
         #url1.error {
             background-color: red;
         }
@@ -118,7 +122,7 @@
             height: 95vh;
             margin: 0 auto;
             position: relative;
-            z-index: 1;           
+            z-index: 15;
             border: .5vw solid rgba(0, 0, 0, .2);
             box-sizing: border-box;
             background-image: url("https://www.apclc.com/d/file/moban/62869/img/litpic.jpg");
@@ -136,7 +140,7 @@
             position: relative;
             max-width: 960px;
             margin: 15vh auto;
-            z-index: 2;
+            z-index: 20;
         }
 
         li {
@@ -160,12 +164,14 @@
         li:hover {
             color: red;
             height: 30vh;
-        }       
-        
+        }
+
         #select1,
-        button,
+        button,.span3,
         [type=submit],
-        [type=reset],a,li>div>span {
+        [type=reset],
+        a,
+        li>div>span {
             color: black;
             height: 31px;
             text-align: center;
@@ -176,9 +182,9 @@
             line-height: 31px;
             vertical-align: middle;
             background-color: rgba(255, 255, 255, 0.5);
-            transition: box-shadow 0.4s,background-color 0.5s,transform 0.5s;
+            transition: box-shadow 0.4s, background-color 0.5s, transform 0.5s;
         }
-    
+
         [type=submit],
         [type=reset] {
             height: 36px;
@@ -189,8 +195,8 @@
         a:visited {
             color: black;
         }
-        
-        button:hover,
+
+        button:hover,.span3:hover,
         #select1:hover,
         [type=submit]:hover,
         [type=reset]:hover,
@@ -200,55 +206,103 @@
             background-color: rgba(0, 0, 0, 0.4);
             color: white;
             box-shadow: 0 0 10px white;
-            transform: scale(1.05,1.1);
+            transform: scale(1.05, 1.1);
         }
 
         button:active,
         [type=submit]:active,
-        [type=reset]:active,a:active,li>div>span:active {
+        [type=reset]:active,
+        a:active,
+        li>div>span:active {
             background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #top1 {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            position: fixed;
+            right: 80px;
+            bottom: 80px;
+            z-index: 10;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 5px white;
+            transition: background-color 0.6s, box-shadow 0.6s, opacity, 2s;
+            border-radius: 8px;
+            opacity: 0;
+        }
+
+        #top1.top1 {
+            opacity: 1;
+            display: inline-block;
+        }
+
+        #top1:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px white;
+            cursor: pointer;
         }
 
         @media screen and (max-width:600px) {
             .movie-range {
                 height: 70vh;
             }
+
             .search {
                 position: static;
-                height: 30vh;
+                height: 35vh;
                 border-radius: 1px 1px 1px 1px;
             }
+            .search:hover {
+                height: 35vh;
+            }
             .empty:empty {
-            height: 0px;
+                height: 0px;
+            }
+
+            #sp11 {
+                width: 100vw;
+            }
+
+            #sp11::after {
+                content: '(正在使用移动设备)';
+            }
+
+            #sp11:hover {
+                width: 100vw;
+            }
+
+            li>div {
+                height: 340px;
+            }
+
+            li:hover {
+                height: 385px;
+            }
+
+            .span2 {
+                display: block;
+                color: white;
+                text-shadow: 0px 0px 15px black;
+            }
+
+            .span2::after {
+                content: '部分移动设备显示不全';
+            }
+
+            #top1 {
+                display: none;
+            }
+
+            #top1.top1 {
+                display: none;
+            }
         }
-        #sp11 {
-            width: 100vw;
-        }
-        #sp11::after {
-            content: '(正在使用移动设备)';
-        }
-        #sp11:hover {
-            width: 100vw;
-        }
-        li>div {
-            height: 340px;
-        }
-        li:hover {
-            height: 385px;
-        }
-        .span2{
-            display: block;
-            color: white;
-            text-shadow: 0px 0px 15px black;
-        }
-        .span2::after {
-            content: '部分移动设备显示不全';
-        }
-        } 
     </style>
 </head>
 
-<body>
+<body id="body1">
 
     <div id="div1" class="search">
         <h3 class="topbar">
@@ -289,6 +343,11 @@
             <a href="https://www.56.com/" target="_blank">56</a>
             <a href="https://vip.1905.com/" target="_blank">1905</a>
             <a href="https://www.pptv.com/" target="_blank">pptv</a>
+            <hr>
+            <span>背景色切换:</span>
+            <input type="color" id="color1">
+            <span class="span3" onclick="span3()">复位</span>
+            <hr>
             <span class="span2"></span>
             <div class="interesting">别点啦松手吧</div>
     </div>
@@ -296,8 +355,8 @@
     <div id="div2" class="empty"></div>
 
     <div class="movie-range">
-        <iframe id="iframe1" src="" frameborder="1px" allowfullscreen="true"
-            webkitallowfullscreen="true" mozallowfullscreen="true" name="blank"></iframe>
+        <iframe id="iframe1" src="" frameborder="1px" allowfullscreen="true" webkitallowfullscreen="true"
+            mozallowfullscreen="true" name="blank"></iframe>
     </div>
 
     <div class="content">
@@ -305,7 +364,7 @@
             <li>
                 <h3>玫瑰的故事</h3>
                 <div>
-                
+
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002002s2ark5/j4100uwn8lx.html')">01</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002002s2ark5/v4100d80hqs.html')">02</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002002s2ark5/v4100qehgr2.html')">03</span>
@@ -386,7 +445,7 @@
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/a4100cqd0xs.html')">16</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/f4100y2c835.html')">17</span>
                     <!-- <span onclick="jx1('')">18</span> -->
-                    
+
                 </div>
             </li>
             <li>
@@ -443,14 +502,22 @@
             <li>
                 <h3>虽然我不是英雄</h3>
                 <div>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8')">01</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8')">02</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8')">03</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8')">04</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8')">05</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8')">06</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8')">07</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8')">08</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8')">01</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8')">02</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8')">03</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8')">04</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8')">05</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8')">06</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8')">07</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8')">08</span>
 
                 </div>
             </li>
@@ -501,14 +568,22 @@
             <li>
                 <h3>虽然不是英雄</h3>
                 <div>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8')">01</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8')">02</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8')">03</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8')">04</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8')">05</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8')">06</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8')">07</span>
-                    <span onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8')">08</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC01%E9%9B%86/index.m3u8')">01</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC02%E9%9B%86/index.m3u8')">02</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC03%E9%9B%86/index.m3u8')">03</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC04%E9%9B%86/index.m3u8')">04</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC05%E9%9B%86/index.m3u8')">05</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC06%E9%9B%86/index.m3u8')">06</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC07%E9%9B%86/index.m3u8')">07</span>
+                    <span
+                        onclick="jx1('https://s3.bfengbf.com/video/suiranbushiyingxiong/%E7%AC%AC08%E9%9B%86/index.m3u8')">08</span>
                 </div>
             </li>
             <li>
@@ -974,64 +1049,122 @@
             <li>
                 <h3>鸡毛飞上天</h3>
                 <div>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803941640659534350&logTag=09d6d70cfe547de8d06c')">01</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803951647975277064&logTag=a5c7cd6e0bf43cb9c290')">02</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803958605398671886&logTag=9cb451e887c8e0f84bd1')">03</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803964090617168397&logTag=8a87ae0a3073d9534ea8')">04</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803970970936672775&logTag=8907d787fa1cec353b1b')">05</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803984270315487752&logTag=cb152157ac6d1469ea9d')">06</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804254959178088968&logTag=106ed01666bdf8a6f417')">07</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804704740920787464&logTag=fc1fe744bf849ec539ec')">08</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804709498033275400&logTag=a4addfe8e9177d574fcb')">09</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804714468908466701&logTag=6b4810229618928636b0')">10</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804719004595257863&logTag=739f536404d99fe3f3a0')">11</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804729078743040526&logTag=aea28a59cbd999a7125b')">12</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804736190084809229&logTag=a9cbac77cd3465f1c669')">13</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804740565679211022&logTag=c4b32cfced6f0d481999')">14</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804744448782631437&logTag=dd2cfcc7dc7b1c1fe22f')">15</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804749842842124814&logTag=cdc981375298fbaa4eec')">16</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804753822733304334&logTag=e2485204a669bfe94dfa')">17</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6835824897399194125&logTag=046ffc86e84625d77215')">18</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804772602825933326&logTag=13a2d69871cea22982ff')">19</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804786156476039693&logTag=03e93290037d3ae989b6')">20</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804793274390282760&logTag=146f1dd20282bcac82d8')">21</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804804989156852231&logTag=742a2e42c9d747193d33')">22</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804809057375879687&logTag=ad94b5a11beb6ece89c7')">23</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805704942108541454&logTag=3f2b30ad5b4ce08b8a5d')">24</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708541714760206&logTag=4fa606f77eec02ed9580')">25</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708569413943815&logTag=357ba3f6c0bae92cf078')">26</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708597884879367&logTag=fb5b510f406221d2fb97')">27</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708628977254925&logTag=e1f61ebf868c79606073')">28</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708662460383757&logTag=f1da8cf73451563cded2')">29</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708693120745991&logTag=3d933e647478ace45a31')">30</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720004760175118&logTag=e27d9ae847ea48920bbf')">31</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720039442874888&logTag=217ed25562eb5c094fcf')">32</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720067918004744&logTag=658a4784b374eae6cb5c')">33</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720102395183623&logTag=0263a31c91cc88d7386d')">34</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720138352951815&logTag=9a9af4b09718c4e30312')">35</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720176416260615&logTag=8195d8e2c86b047ae0a1')">36</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720214542483982&logTag=ff4a9e841989b9c4274b')">37</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720280174952967&logTag=701942f7b44352bd77d6')">38</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720312550785550&logTag=482b9e86422e1e678df7')">39</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720346109411847&logTag=2cac525e69b06300da8a')">40</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735050953359885&logTag=b8483b85abbc0f4783ce')">41</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735083698291208&logTag=fe41d3d564a6c7131097')">42</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735160441471495&logTag=518c8af9ecbff42335d4')">43</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735192087495181&logTag=e1779b8c2bdf7273abaa')">44</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735223406363143&logTag=5508fdcf4bbd889302fc')">45</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735277332529671&logTag=c2dbe5b975cd0feb5062')">46</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735734608134664&logTag=cd738366aaa244a57515')">47</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735765780201998&logTag=0a5cefc62d74f9085f6d')">48</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735800832000526&logTag=f6b6734352da73b804fb')">49</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735831332979214&logTag=57ab83ecfd1963b06ae4')">50</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805744999217496583&logTag=92ee1e69636b0eeb7123')">51</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745030863520269&logTag=7c07d7169bd9fd0aef21')">52</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745062983500295&logTag=d00794b05aa4daac5b23')">53</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745098467312142&logTag=8eb11d4f7629df0bca72')">54</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745130297885191&logTag=ebce4b68bf6de89ee3bf')">55</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745162816324103&logTag=fdd9debcf7c0cb32e1c4')">56</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745193438937607&logTag=9e26dbf4ce8958b10d1a')">57</span>
-                    <span onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745233297408520&logTag=8b918ae3995640d247a2')">58</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803941640659534350&logTag=09d6d70cfe547de8d06c')">01</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803951647975277064&logTag=a5c7cd6e0bf43cb9c290')">02</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803958605398671886&logTag=9cb451e887c8e0f84bd1')">03</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803964090617168397&logTag=8a87ae0a3073d9534ea8')">04</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803970970936672775&logTag=8907d787fa1cec353b1b')">05</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6803984270315487752&logTag=cb152157ac6d1469ea9d')">06</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804254959178088968&logTag=106ed01666bdf8a6f417')">07</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804704740920787464&logTag=fc1fe744bf849ec539ec')">08</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804709498033275400&logTag=a4addfe8e9177d574fcb')">09</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804714468908466701&logTag=6b4810229618928636b0')">10</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804719004595257863&logTag=739f536404d99fe3f3a0')">11</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804729078743040526&logTag=aea28a59cbd999a7125b')">12</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804736190084809229&logTag=a9cbac77cd3465f1c669')">13</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804740565679211022&logTag=c4b32cfced6f0d481999')">14</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804744448782631437&logTag=dd2cfcc7dc7b1c1fe22f')">15</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804749842842124814&logTag=cdc981375298fbaa4eec')">16</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804753822733304334&logTag=e2485204a669bfe94dfa')">17</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6835824897399194125&logTag=046ffc86e84625d77215')">18</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804772602825933326&logTag=13a2d69871cea22982ff')">19</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804786156476039693&logTag=03e93290037d3ae989b6')">20</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804793274390282760&logTag=146f1dd20282bcac82d8')">21</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804804989156852231&logTag=742a2e42c9d747193d33')">22</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6804809057375879687&logTag=ad94b5a11beb6ece89c7')">23</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805704942108541454&logTag=3f2b30ad5b4ce08b8a5d')">24</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708541714760206&logTag=4fa606f77eec02ed9580')">25</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708569413943815&logTag=357ba3f6c0bae92cf078')">26</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708597884879367&logTag=fb5b510f406221d2fb97')">27</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708628977254925&logTag=e1f61ebf868c79606073')">28</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708662460383757&logTag=f1da8cf73451563cded2')">29</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805708693120745991&logTag=3d933e647478ace45a31')">30</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720004760175118&logTag=e27d9ae847ea48920bbf')">31</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720039442874888&logTag=217ed25562eb5c094fcf')">32</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720067918004744&logTag=658a4784b374eae6cb5c')">33</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720102395183623&logTag=0263a31c91cc88d7386d')">34</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720138352951815&logTag=9a9af4b09718c4e30312')">35</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720176416260615&logTag=8195d8e2c86b047ae0a1')">36</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720214542483982&logTag=ff4a9e841989b9c4274b')">37</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720280174952967&logTag=701942f7b44352bd77d6')">38</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720312550785550&logTag=482b9e86422e1e678df7')">39</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805720346109411847&logTag=2cac525e69b06300da8a')">40</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735050953359885&logTag=b8483b85abbc0f4783ce')">41</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735083698291208&logTag=fe41d3d564a6c7131097')">42</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735160441471495&logTag=518c8af9ecbff42335d4')">43</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735192087495181&logTag=e1779b8c2bdf7273abaa')">44</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735223406363143&logTag=5508fdcf4bbd889302fc')">45</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735277332529671&logTag=c2dbe5b975cd0feb5062')">46</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735734608134664&logTag=cd738366aaa244a57515')">47</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735765780201998&logTag=0a5cefc62d74f9085f6d')">48</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735800832000526&logTag=f6b6734352da73b804fb')">49</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805735831332979214&logTag=57ab83ecfd1963b06ae4')">50</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805744999217496583&logTag=92ee1e69636b0eeb7123')">51</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745030863520269&logTag=7c07d7169bd9fd0aef21')">52</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745062983500295&logTag=d00794b05aa4daac5b23')">53</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745098467312142&logTag=8eb11d4f7629df0bca72')">54</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745130297885191&logTag=ebce4b68bf6de89ee3bf')">55</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745162816324103&logTag=fdd9debcf7c0cb32e1c4')">56</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745193438937607&logTag=9e26dbf4ce8958b10d1a')">57</span>
+                    <span
+                        onclick="jx1('https://www.ixigua.com/6803941342884921869?id=6805745233297408520&logTag=8b918ae3995640d247a2')">58</span>
                 </div>
             </li>
             <li>
@@ -1101,7 +1234,8 @@
             <li>
                 <h3>其它电影</h3>
                 <div>
-                    <span onclick="jx1('https://v1.tlkqc.com/wjv1/202308/19/gA5SK59Jac2/video/1000k_0X720_64k_25/hls/index.m3u8')">艋舺</span>
+                    <span
+                        onclick="jx1('https://v1.tlkqc.com/wjv1/202308/19/gA5SK59Jac2/video/1000k_0X720_64k_25/hls/index.m3u8')">艋舺</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc00200prn37on/r0042ceh67m.html')">卧鼠藏虫</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/gzngihgidohnv8p/z00268hb66k.html')">爱有来生</span>
                     <span onclick="jx1('https://v.youku.com/v_show/id_XNjM3Mjg3NDQ4OA==.html')">黑白潜行</span>
@@ -1117,12 +1251,13 @@
                     <span onclick="jx1('https://www.iqiyi.com/v_1eb3dn4aa2o.html')">被我弄丢的你</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_1suqv77p1bw.html')">我们一起摇太阳</span>
                     <span onclick="jx1('https://www.iqiyi.com/v_ng9j9qrgb8.html')">这个杀手不太冷静</span>
-                    <span onclick="jx1('https://yzzy.play-cdn7.com/20220627/1041_2cbedfc5/1000k/hls/index.m3u8')">西西里的美丽传说</span>
+                    <span
+                        onclick="jx1('https://yzzy.play-cdn7.com/20220627/1041_2cbedfc5/1000k/hls/index.m3u8')">西西里的美丽传说</span>
                 </div>
             </li>
         </ul>
     </div>
-
+    <canvas id="top1" width="200" height="200" onclick="to_top()"></canvas>
     <script>
 
         select1.onblur = function () {
@@ -1133,9 +1268,9 @@
             url1.value = analysis;
             iframe1.src = select1.value + "?url=" + url1.value;
             window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 可选，平滑滚动效果
-                });
+                top: 0,
+                behavior: 'smooth' // 可选，平滑滚动效果
+            });
         }
 
         function jx() {
@@ -1162,7 +1297,43 @@
                 this.classList.add("error");
             }
         }
+        function draw_top() {
+            var canvas = document.getElementById('top1');
+            var context = canvas.getContext('2d');
+            context.beginPath();
+            context.moveTo(40, 130);
+            context.lineTo(100, 60);
+            context.lineTo(160, 130);
+            context.lineWidth = 20;
+            context.strokeStyle = "#FFF";
+            context.linejoin = "round";
+            context.stroke();
+        }
+        window.addEventListener('load', draw_top, true);
+        function to_top() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
+        window.addEventListener('scroll', function () {
+            var scrollPosition = window.scrollY;
+            console.log(scrollPosition);
+            if (scrollPosition > 300) {
+                top1.classList.add("top1");
+            } else {
+                top1.classList.remove("top1");
+            }
+        });
+
+        color1.onblur = function () {           
+                body1.style.backgroundColor = color1.value;      
+        }
+
+        function span3(){
+            body1.removeAttribute('style');
+        }
     </script>
 </body>
 
