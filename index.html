@@ -15,10 +15,6 @@
 
         body {
             background-color: azure;
-            /* background-image: url("https://5b0988e595225.cdn.sohucs.com/images/20190106/354db69327294e409b8f9aa0ff2824e1.jpeg"); */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
 
         .empty:empty {
@@ -75,7 +71,8 @@
             color: yellow
         }
 
-        #color1,.search>span,
+        #color1,
+        .search>span,
         h3 {
             font-size: 25px;
             margin: 4px auto;
@@ -86,6 +83,7 @@
             border-top: 2px solid rgba(0, 0, 0, 0.3);
             border-bottom: none;
         }
+
         #url1 {
             width: 55%;
             height: 34px;
@@ -167,7 +165,8 @@
         }
 
         #select1,
-        button,.span3,
+        button,
+        .span3,
         [type=submit],
         [type=reset],
         a,
@@ -182,7 +181,7 @@
             line-height: 31px;
             vertical-align: middle;
             background-color: rgba(255, 255, 255, 0.5);
-            transition: box-shadow 0.4s, background-color 0.5s, transform 0.5s;
+            transition: box-shadow 0.4s, background-color 0.5s, transform 0.5s ease;
         }
 
         [type=submit],
@@ -196,7 +195,8 @@
             color: black;
         }
 
-        button:hover,.span3:hover,
+        button:hover,
+        .span3:hover,
         #select1:hover,
         [type=submit]:hover,
         [type=reset]:hover,
@@ -206,7 +206,7 @@
             background-color: rgba(0, 0, 0, 0.4);
             color: white;
             box-shadow: 0 0 10px white;
-            transform: scale(1.05, 1.1);
+            transform: scale(1, 1.15);
         }
 
         button:active,
@@ -254,9 +254,11 @@
                 height: 35vh;
                 border-radius: 1px 1px 1px 1px;
             }
+
             .search:hover {
                 height: 35vh;
             }
+
             .empty:empty {
                 height: 0px;
             }
@@ -308,14 +310,14 @@
         <h3 class="topbar">
             <span id="sp11" onclick="top_to()">地 址 解 析</span>
         </h3>
-        <form id="form1" action="http://www.pouyun.com/" target="_blank">
+        <form id="form1" action="https://huayong.net/vip4/" target="_blank">
             <input id="url1" type="text" name="url" placeholder="请输入需要解析的地址" required>
             <input id="submit1" type="submit" value="新窗口">
             <input type="reset" value="清空">
         </form>
         <span>选择解析的线路:</span>
         <select id="select1">
-            <option value="https://www.pouyun.com/" selected>线路1</option>
+            <option value="https://www.pouyun.com/">线路1</option>
             <option value="https://jx.jiexila.com/">线路2</option>
             <option value="https://jx.playerjy.com/">线路3</option>
             <option value="https://jx.7kjx.com/">线路4</option>
@@ -328,6 +330,8 @@
             <option value="https://llq.tyhua.top/">线路11</option>
             <option value="https://jx.2s0.cn/player/">线路12</option>
             <option value="https://jx.xyflv.cc/">线路13</option>
+            <option value="https://huayong.net/vip4/" selected>默认</option>
+            <option value="https://huayong.net/playm3u8/play.php">m3u8</option>
         </select>
         <button type="button" onclick="jx()"">预览</button>
                 <hr>
@@ -417,9 +421,9 @@
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc00200u8vfzcz/b410080qb2f.html')">06</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc00200u8vfzcz/n4100rf37xt.html')">07</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc00200u8vfzcz/m4100ajun9y.html')">08</span>
-                    <!-- <span onclick="jx1('')">09</span>
-                    <span onclick="jx1('')">10</span>
-                    <span onclick="jx1('')">11</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc00200u8vfzcz/c41002qggly.html')">09</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc00200u8vfzcz/k4100znc0aa.html')">10</span>
+                    <!-- <span onclick="jx1('')">11</span>
                     <span onclick="jx1('')">12</span> -->
 
                 </div>
@@ -444,6 +448,8 @@
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/q4100gmku9d.html')">15</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/a4100cqd0xs.html')">16</span>
                     <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/f4100y2c835.html')">17</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/a4100ycdz07.html')">18</span>
+                    <span onclick="jx1('https://v.qq.com/x/cover/mzc002004n42g5b/k41009r3l3u.html')">19</span>
                     <!-- <span onclick="jx1('')">18</span> -->
 
                 </div>
@@ -1327,12 +1333,13 @@
             }
         });
 
-        color1.onblur = function () {           
-                body1.style.backgroundColor = color1.value;      
+        color1.onchange = function () {
+            body1.style.backgroundColor = color1.value;
         }
 
-        function span3(){
-            body1.removeAttribute('style');
+
+        function span3() {
+            body1.removeAttribute('style');        
         }
     </script>
 </body>
