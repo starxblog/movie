@@ -103,23 +103,26 @@
 
         #url1 {
             width: 100%;
-            height: 34px;
-            line-height: 35px;
+            height: 31px;
+            line-height: 31px;
             margin: 4px 0;
-            border: 3px solid #cccccc;
             border-radius: 4px;
             font-size: 20px;
             text-indent: 11px;
             vertical-align: middle;
             display: inline-block;
+            border: 3px solid white;
+            transition: border-color 0.5s;
+            
         }
 
-        [type=text]:hover {
-            background-color: #cccccc;
+        #url1:hover {
+            border: 3px solid rgb(0, 238, 255);
         }
 
-        [type="text"]:focus {
-            background-color: bisque;
+        #url1:focus {
+            border: 3px solid rgb(0, 238, 255);
+            outline: none;
         }
 
         #url1.error {
@@ -180,7 +183,8 @@
             color: red;
             height: 30vh;
         }
-
+        #submit1:enabled,
+        #yulan:enabled,
         #select1,
         [type=reset],
         a,
@@ -198,8 +202,8 @@
             transition: box-shadow 0.8s, background-color 0.5s, transform 0.5s ease;
         }
 
-        button,
-        [type=submit] {
+        #submit1:disabled,
+        #yulan:disabled{
             height: 31px;
             text-align: center;
             font-size: 25px;
@@ -208,20 +212,16 @@
             border: 1px solid black;
             line-height: 31px;
             vertical-align: middle;
-            transition: box-shadow 0.8s, background-color 0.5s, transform 0.5s ease;
+            border-radius: 2px;
         }
 
-        [type=submit],
-        [type=reset] {
-            height: 36px;
-            border-radius: 5px;
-        }
-
+    
         a:link,
         a:visited {
             color: black;
         }
-
+        #submit1:enabled:hover,
+        #yulan:enabled:hover,
         #select1:hover,
         [type=reset]:hover,
         a:hover,
@@ -233,19 +233,13 @@
             transform: scale(1, 1.1);
         }
 
-        .xinck:hover,
-        .yulan:hover {
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.3);
-            color: white;
-            box-shadow: 0 0 10px white;
-            transform: scale(1, 1.1);
-        }
 
+        #submit1:enabled:active,
+        #yulan:enabled:active,
         [type=reset]:active,
         a:active,
         li>div>span:active {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
 
@@ -328,7 +322,7 @@
             <option value="https://www.gszyv.com/m3u8/">m3u82</option>
         </select>
         <button type="button" onclick="jx1()" disabled id="yulan">预览</button>
-        <a href="">更换壁纸</a>
+        <a href="">换壁纸</a>
         <hr>
         <a href=" https://youku.com/" target="_blank">优酷</a>
         <a href="https://v.qq.com/" target="_blank">腾讯</a>
@@ -347,7 +341,7 @@
         <input type="color" id="color1" value="#F4FFFF"
             onchange="document.body.style.backgroundColor = document.getElementById('currentColor').textContent = this.value;color2();">
         <span id="currentColor"
-            onclick="document.body.removeAttribute('style');this.textContent='已';color1.value='#F4FFFF';"
+            onclick="document.body.removeAttribute('style');this.textContent='已';color1.value='#F4FFFF';body1.classList.add('body1');"
             style="cursor: pointer;"></span>
         <hr>
         <span class="span2"></span>
@@ -1297,8 +1291,6 @@
             }
         }
 
-
-
         function top_to() {
             document.getElementById('div1').classList.toggle("search1");
             document.getElementById('div2').classList.toggle("empty");
@@ -1318,15 +1310,11 @@
                 span4.textContent = ""
                 yulan.disabled = false;
                 submit1.disabled = false;
-                submit1.classList.add('xinck');
-                yulan.classList.add('yulan');
             } else {
                 url1.classList.add("error");
                 span4.textContent = "您输入的地址错误,请重新检查"
                 yulan.disabled = true;
                 submit1.disabled = true;
-                submit1.classList.remove('xinck');
-                yulan.classList.remove('yulan');
             }
         }
 
